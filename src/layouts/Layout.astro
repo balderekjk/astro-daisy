@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  theme?: "lemonade" | "dim";
+}
+
+import Navbar from "../components/Navbar.astro";
+const { title, theme = "lemonade" } = Astro.props;
+---
+
+<!doctype html>
+<html data-theme={theme} lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <div class="m-4">
+      <slot />
+    </div>
+  </body>
+</html>
