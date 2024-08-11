@@ -1,11 +1,11 @@
 ---
 interface Props {
   title: string;
-  theme?: "lemonade" | "dim";
+  theme?: "lemonade" | "dim" | "custom";
 }
 
 import Navbar from "../components/Navbar.astro";
-const { title, theme = "lemonade" } = Astro.props;
+const { title, theme = "custom" } = Astro.props;
 ---
 
 <!doctype html>
