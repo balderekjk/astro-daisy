@@ -1,0 +1,14 @@
+---
+import { Content, frontmatter } from "../specials/announcements.md";
+const { title } = frontmatter;
+---
+
+<div
+  id="announcements"
+  class="card w-96 shadow-md border-[1px] border-slate-300"
+>
+  <div class="card-body">
+    {title && <h3 class="card-title">{title}</h3>}
+    <Content />
+  </div>
+</div>

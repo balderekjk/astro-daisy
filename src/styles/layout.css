@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .prose h1 {
+    @apply text-[2em] mt-[0.33em] mb-[0.67em] font-semibold;
+  }
+  .prose h2 {
+    @apply text-[1.5em] mt-[0.41em] mb-[0.83em] font-semibold;
+  }
+  .prose h3 {
+    @apply text-[1.17em] mt-[0.5em] mb-[1em] font-semibold;
+  }
+  .prose h4 {
+    @apply text-[1em] mt-[0.67em] mb-[1.33em] font-semibold;
+  }
+  .prose h5 {
+    @apply text-[0.83em] mt-[0.83em] mb-[1.67em] font-semibold text-[var(--tw-prose-headings)];
+  }
+  .prose h6 {
+    @apply text-[0.67em] mt-[1.17em] mb-[2.33em] font-semibold text-[var(--tw-prose-headings)];
+  }
+  .prose p {
+    @apply mt-[0.5em] mb-[1em];
+  }
+}
