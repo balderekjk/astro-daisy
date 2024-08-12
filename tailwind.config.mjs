@@ -7,9 +7,6 @@ export default {
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     themes: [
-      "lemonade",
-      "dim",
-      "forest",
       {
         custom: {
           primary: "#76b82a",
@@ -21,6 +18,12 @@ export default {
           success: "#4caf50",
           warning: "#fcd34d",
           error: "#d32f2f",
+        },
+      },
+      {
+        dim: {
+          ...require("daisyui/src/theming/themes")["dim"],
+          "--b1": "20.85% 0.013 264.24",
         },
       },
     ],

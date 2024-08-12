@@ -1,13 +1,21 @@
 ---
-interface Props {
+interface Frontmatter {
   title: string;
-  theme?: "lemonade" | "dim" | "custom";
+  theme?: "custom" | "dim";
+}
+
+interface Props {
+  frontmatter?: Frontmatter;
+  title: string;
+  theme?: "custom" | "dim";
 }
 
 import Navbar from "../components/Navbar.astro";
 import Banner from "../components/Banner.astro";
 import Footer from "../components/Footer.astro";
-const { title, theme = "custom" } = Astro.props;
+const { frontmatter } = Astro.props;
+const title = Astro.props.title || frontmatter?.title || "NHEA";
+const theme = Astro.props.theme || frontmatter?.theme || "custom";
 ---
 
 <!doctype html>
@@ -25,6 +33,7 @@ const { title, theme = "custom" } = Astro.props;
     <Banner />
     <main class="m-4">
       <article class="prose">
+        <h1>{title}</h1>
         <slot />
       </article>
     </main>
