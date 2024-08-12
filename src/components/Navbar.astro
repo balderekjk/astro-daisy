@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-astro";
 import ThemeController from "./ThemeController.astro";
 ---
 
-<div data-theme="forest" class="navbar bg-base-100 border-b-[primary]">
+<nav data-theme="forest" class="navbar border-b-[primary]">
   <div class="navbar-start">
     <details id="menu-toggle" class="dropdown lg:hidden">
       <summary
@@ -14,7 +14,7 @@ import ThemeController from "./ThemeController.astro";
         <X class="swap-on" />
       </summary>
       <ul
-        class="menu menu-md dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+        class="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
       >
         <li><a href="#">annual convention</a></li>
         <li><a href="#">register</a></li>
@@ -33,4 +33,4 @@ import ThemeController from "./ThemeController.astro";
   <div class="navbar-end">
     <ThemeController />
   </div>
-</div>
+</nav>

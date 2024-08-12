@@ -4,8 +4,9 @@ interface Props {
   theme?: "lemonade" | "dim" | "custom";
 }
 
-import Banner from "../components/Banner.astro";
 import Navbar from "../components/Navbar.astro";
+import Banner from "../components/Banner.astro";
+import Footer from "../components/Footer.astro";
 const { title, theme = "custom" } = Astro.props;
 ---
 
@@ -19,12 +20,15 @@ const { title, theme = "custom" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="min-h-[100dvh] grid [grid-template-rows:auto_auto_1fr_auto]">
     <Navbar />
     <Banner />
-    <div class="m-4">
-      <slot />
-    </div>
+    <main class="m-4">
+      <article class="prose">
+        <slot />
+      </article>
+    </main>
+    <Footer />
     <script>
       //@ts-nocheck
       const detailsElement = document.getElementById("menu-toggle");
