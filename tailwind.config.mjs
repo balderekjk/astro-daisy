@@ -9,6 +9,7 @@ export default {
     themes: [
       "lemonade",
       "dim",
+      "forest",
       {
         custom: {
           primary: "#76b82a",
