@@ -21,11 +21,15 @@ const announcements =
     <meta name="generator" content={Astro.generator} />
     <title>{"NHEA" + (title ? " - " + title : "")}</title>
   </head>
-  <body class="min-h-[100dvh] grid [grid-template-rows:auto_auto_1fr_auto]">
+  <body
+    class="min-h-[100dvh] min-w-[290px] grid [grid-template-rows:auto_auto_1fr_auto]"
+  >
     <Navbar />
     <Banner />
-    <div class="my-4 lg:mx-12 sm:mx-6 mx-4 prose max-w-[1200px]">
-      <main>
+    <div
+      class="my-4 md:px-6 px-4 prose prose-a:text-blue-600 visited:prose-a:text-purple-500 max-w-none flex flex-wrap justify-center gap-6"
+    >
+      <main class="max-w-[50rem] w-full">
         <article>
           <h1 class="text-primary font-semibold">{title}</h1>
           <slot />

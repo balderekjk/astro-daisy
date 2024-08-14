@@ -1,14 +1,22 @@
 ---
-import { Content, frontmatter } from "../specials/announcements.md";
-const { title } = frontmatter;
+const announcements = await Astro.glob("../announcements/*.md");
 ---
 
-<div
-  id="announcements"
-  class="card w-96 shadow-md border-[1px] border-slate-300"
->
-  <div class="card-body">
-    {title && <h3 class="card-title">{title}</h3>}
-    <Content />
-  </div>
+<div id="announcements" class="space-y-4 prose-ul:my-2 prose-li:my-1">
+  {
+    announcements
+      .filter((a) => a.frontmatter.title)
+      .sort((a, b) => a.frontmatter.order - b.frontmatter.order)
+      .map((announcement) => {
+        const { Content } = announcement;
+        return (
+          <div class="card max-w-96 shadow-md border-[1px] border-slate-300 bg-[var(--off)]">
+            <div class="card-body block">
+              <h3 class="card-title">{announcement.frontmatter.title}</h3>
+              <Content />
+            </div>
+          </div>
+        );
+      })
+  }
 </div>

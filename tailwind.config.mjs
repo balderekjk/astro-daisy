@@ -18,17 +18,16 @@ export default {
           success: "#4caf50",
           warning: "#fcd34d",
           error: "#d32f2f",
-          "--opposite": "#15181e",
+          "--off": "#eeeefb",
         },
       },
       {
         dim: {
           ...require("daisyui/src/theming/themes")["dim"],
           "--b1": "20.85% 0.013 264.24",
-          "--opposite": "#fefeff",
+          "--off": "#1d222a",
         },
       },
     ],
   },
-  darkMode: ["class", 'html[data-theme="dim"]'],
 };
