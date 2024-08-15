@@ -1,7 +1,6 @@
 ---
 layout: "../layouts/Layout.astro"
 title: "Annual Convention"
-announcements: true
 ---
 
 <figure class="flex justify-center overflow-hidden sm:float-right float-none text-center sm:max-w-[50%] mx-0 my-0 sm:ml-6">

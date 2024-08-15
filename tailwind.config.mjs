@@ -3,7 +3,16 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
+      },
+    },
   },
   daisyui: {
     themes: [

@@ -1,0 +1,30 @@
+---
+layout: "../layouts/Layout.astro"
+title: About Us
+---
+
+## ʻAʻohe pau ka ʻike i ka hālau hoʻokahi
+
+The Native Hawaiian Education Association (NHEA) is a private non-profit organization of Native Hawaiian educators. The organization was started in 1998 with its first convention on the island of Maui. Adapted after the National Indian Education Association (NIEA), NHEA facilitates a network of Hawaiian educators to attend to the various educational issues which challenge the Hawaiian population and is designed to be a self-sustaining umbrella organization for Hawaiian education and Hawaiian educators.
+
+NHEA is a grassroots organization focused on supporting, encouraging, networking, collaborating and furthering the work of those tasked with the responsibility of educating our Native Hawaiian children. As an association, NHEA advocates an educational philosophy which acknowledges a Native Hawaiian perspective to teaching and learning in the 21st century.
+
+## Board Members
+
+> <strong>Loea Akiona</strong> - President\
+> <strong>Nahiwa Naki</strong> - Vice President\
+> <strong>Bransen Zablan</strong> - Treasure\
+> <strong>Kuʻulei Miranda</strong> - Secretary
+
+Email Address:
+
+> [nhea.hawaii@gmail.com](mailto:nhea.hawaii@gmail.com)
+
+Mailing Address:
+
+> P.O. Box 1190\
+> Wailuku, HI 96793
+
+Federal Employer Identification Number (EIN):
+
+> 80-0198123

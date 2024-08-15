@@ -14,7 +14,7 @@ announcements: true
 
 Please join us for the NHEA's 25th Annual conference being held at Maui College at Pāʻina.
 
-Registration is now open. Register for this year's conference here.
+Registration is now open. Register for this year's conference [here](#).
 
 If you are a workshop presenter, please fill out this form: workshop presenter registration.
 
