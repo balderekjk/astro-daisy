@@ -1,0 +1,169 @@
+---
+import PayPal from "./PayPal.astro";
+---
+
+<!-- action="https://script.google.com/macros/s/AKfycbw-y6YYG9c_3qcujy_-Qqaem0She2U9lBE76UV8m1sBNgryBxxRqAjCT9AUUQKxAsnq/exec?sheetName=2024 Mock Registrants" -->
+<form
+  id="registration"
+  class="card card-bordered not-prose [&_label:not(:has([type=radio])):not(:has([type=checkbox]))]:form-control [&_input:not([type=radio]):not([type=checkbox])]:input [&_input:not([type=radio]):not([type=checkbox])]:input-bordered [&_input]:!outline-blue-600 [&_input+span]:ml-3 [&_input:focus:valid]:!outline-green-600"
+  action="https://script.google.com/macros/s/AKfycbw-y6YYG9c_3qcujy_-Qqaem0She2U9lBE76UV8m1sBNgryBxxRqAjCT9AUUQKxAsnq/exec?sheetName=2024 Mock Registrants"
+>
+  <div class="card-body">
+    <h3 class="card-title">Registrant Information</h3>
+    <p class="label-text">asterisk (*) means required</p>
+    <hr />
+    <label>
+      First Name*
+      <input name="First Name" type="text" required />
+    </label>
+    <label>
+      Last Name*
+      <input name="Last Name" type="text" required />
+    </label>
+    <label>
+      Email*
+      <input name="Email" type="email" pattern="\\w+@\\w+\.\\w+" required />
+    </label>
+    <label>
+      Organization or Affiliation*
+      <input name="Organization" type="text" required />
+    </label>
+    <label>
+      Position Title*
+      <input name="Position" type="text" required />
+    </label>
+    <label>
+      City*
+      <input name="City" type="text" required />
+    </label>
+    <label>
+      State*
+      <input
+        name="State"
+        type="text"
+        placeholder="XX"
+        pattern="\\w{2}"
+        required
+      />
+    </label>
+    <label>
+      Zip Code*
+      <input
+        name="Zip"
+        type="text"
+        placeholder="XXXXX"
+        required
+        pattern="\\d{5}"
+      />
+    </label>
+    <label>
+      Phone Number*
+      <input name="Phone" type="tel" required pattern="\\d{10,11}" />
+      <p class="label-text">numbers only</p>
+    </label>
+    <h3 class="card-title">Payment Method*</h3>
+    <p class="label-text">
+      Only One Purchase Per Person/Email/Submission<br />
+      NHEA Convention Registration is $300<br />
+      If paying with Cash, Check, or Purchase Order, direct your payment to:<br
+      />
+      NHEA<br />
+      P.O. Box 1190<br />
+      Wailuku, HI 96793
+    </p>
+    <hr />
+    <label>
+      <input type="radio" name="Payment Method" value="PayPal" />
+      <span>PayPal</span>
+      <p class="label-text">
+        Submit this form and yellow PayPal button will appear below
+      </p>
+    </label>
+    <label>
+      <input type="radio" name="Payment Method" value="Cash" />
+      <span>Cash</span>
+      <p class="label-text">
+        See above for address or have it ready on day of event
+      </p>
+    </label>
+    <label>
+      <input type="radio" name="Payment Method" value="Check" />
+      <span>Check</span>
+      <p class="label-text">
+        See above for address or have it ready on day of event
+      </p>
+    </label>
+    <label>
+      <input type="radio" name="Payment Method" value="Purchase Order" />
+      <span>Purchase Order</span>
+      <p class="label-text">
+        If known, please enter PO No. below; see above for address
+      </p>
+    </label>
+    <label>
+      Purchase Order No.
+      <input
+        name="Purchase Order No."
+        type="text"
+        placeholder="Only for purchase order"
+      />
+    </label>
+    <div class="my-2">
+      <button class="btn w-fit px-6" id="action-submit">Submit</button>
+      <button
+        type="button"
+        class="btn btn-outline w-fit px-6 ml-3"
+        onclick="showPay()">Looking for PayPal button?</button
+      >
+    </div>
+    <div class="hidden p-3 mx-[-0.75rem] rounded-lg bg-white" id="pay_slot">
+      <PayPal />
+    </div>
+    <p class="text-center">
+      <strong>
+        If you have any inquiries or requests please email{" "}
+        <a href="#">nhea.hawaii@gmail.com</a>.
+      </strong>
+    </p>
+  </div>
+</form>
+
+<script is:inline>
+  let reg = document.querySelector("#registration");
+  if (localStorage.getItem("paypal")) pay_slot.classList.remove("hidden");
+  reg.addEventListener("submit", (e) => handleSubmit(e));
+  function showPay() {
+    let pay_slot = document.querySelector("#pay_slot");
+    pay_slot.classList.remove("hidden");
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.querySelector("#status")?.remove();
+    let btn = document.querySelector("#action-submit");
+    btn.disabled = true;
+    let body = new FormData(reg);
+    fetch(reg.action, {
+      method: "POST",
+      body: body,
+      mode: "no-cors",
+    })
+      .then(() => {
+        if (body.get("Payment Method") === "PayPal") {
+          showPay();
+        }
+        e.target.reset();
+        btn.disabled = false;
+        btn.insertAdjacentHTML(
+          "afterend",
+          `<blockquote id="status" class="border-s-[3px] pl-4 border-s-green-600">Success!</blockquote>`
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+        btn.insertAdjacentHTML(
+          "afterend",
+          `<blockquote id="status" class="border-s-[3px] pl-4 border-s-red-600">Something went wrong. Please notify us about this incident.</blockquote>`
+        );
+      });
+  }
+</script>

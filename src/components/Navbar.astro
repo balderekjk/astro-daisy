@@ -23,7 +23,7 @@ import ThemeController from "./ThemeController.astro";
     </details>
     <a href="/" class="btn btn-ghost text-xl">NHEA</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
+  <div class="navbar-center lg-flex-hidden">
     <ul class="menu menu-horizontal px-1 gap-2 text-lg">
       <li><a href="/annual-convention">annual convention</a></li>
       <li><a href="/register">register</a></li>
@@ -34,3 +34,14 @@ import ThemeController from "./ThemeController.astro";
     <ThemeController />
   </div>
 </nav>
+
+<style>
+  .lg-flex-hidden {
+    display: none;
+  }
+  @media screen and (min-width: 1024px) {
+    .lg-flex-hidden {
+      display: flex;
+    }
+  }
+</style>
